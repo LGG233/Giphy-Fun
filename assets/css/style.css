@@ -1,0 +1,19 @@
+body {
+    margin: 15px!important;
+}
+
+/* .button {
+    margin: 0 15px 0 0;
+    width: 200px!important;
+    height: 50px!important;;
+} */
+
+.input-box {
+    width: 200px!important;
+    height: 50px!important;;
+}
+
+.button-text {
+    margin: 5px;
+}
+
