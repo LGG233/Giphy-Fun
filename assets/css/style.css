@@ -12,6 +12,12 @@ html {
     margin: 15px;
 } */
 
+#open-gif {
+    float: left;
+    width: 300px;
+    height: auto;
+}
+
 #searchText {
     margin: 0 0 15px 15px;
 }
