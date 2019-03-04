@@ -2,9 +2,9 @@ body {
     margin: 15px!important;
 }
 
-#search-input {
+/* #search-input {
     margin: 15px;
-}
+} */
 
 #searchText {
     margin: 0 0 15px 15px;
@@ -16,7 +16,7 @@ body {
 }
 
 .button-text {
-    margin: 5px;
+    margin: 10px 3px 5px 0;
 }
 
 .button-gif {

@@ -15,18 +15,11 @@
 // 2. AJAX request with Giphy API
 // 2.1 build URL for AJAX request dynamically to pull text from button name on click then create the URL
 
-//     makeButton();
-// });
-
-// $("#target").submit(function (event) {
-//     alert("Handler for .submit() called.");
-//     event.preventDefault();
-// });
-
-var searchText = "";
-var topics = ["Sigh", "Boring", "Yawn", "Sleepy", "Tired"];
-var gifArray = [];
-var url = "";
+var searchText = ""; // text from input box that will eventually become search term on Giphy
+var topics = ["Paris", "London", "Rome", "New York", "Hong Kong", "Tokyo"];
+var gifArray = []; // will hold all the JSON data returned from the AJAX get
+var gifSearch = ""; // name of searchText used in query URL and to push to DOM
+var url = ""; 
 var rating = "";
 
 renderButtons();
@@ -65,9 +58,9 @@ function getGIFs() {
             .then(function (response) {
                 console.log(response);
                 for (var j = 0; j < 10; j++) {
-                    fixedURL = response.data[j].images.fixed_width_still.url;
-                    movingURL = response.data[j].images.fixed_width.url
-                    gifRating = response.data[j].rating
+                    var fixedURL = response.data[j].images.fixed_width_still.url;
+                    var movingURL = response.data[j].images.fixed_width.url
+                    var gifRating = response.data[j].rating
                     gifArray.push({
                         fixed_url: fixedURL,
                         gif_url: movingURL,
@@ -79,6 +72,7 @@ function getGIFs() {
     })
 }
 function gifsDOM() {
+    $("#gifs-title").text("Here are your GIFs. Enjoy!");
     for (var x = 0; x < gifArray.length; x++) {
         var gifsDiv = $("<div class='buttonGIF'>");
         var image = $("<img>").attr({
