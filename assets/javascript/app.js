@@ -1,20 +1,3 @@
-// Pseudocode
-// 0. Set up page -- don't use Jumbotron
-// 0.1 elements required for page:
-// - input box
-// - "create button" button
-// NB: buttons created need to serve as triggers for GIPHY API search using name of button as search term
-// NB: must have event.preventDefault(); to keep buttons from refreshing page when submitting request
-
-// 1. Turn search term into button
-// 1.1 Capture text input into textbox
-// 1.2 create new button using input from textbox as name
-// 1.3 display buttons across top of page
-// NB: no need to 
-
-// 2. AJAX request with Giphy API
-// 2.1 build URL for AJAX request dynamically to pull text from button name on click then create the URL
-
 var searchText = ""; // text from input box that will eventually become search term on Giphy
 var topics = ["Paris", "London", "Rome", "New York", "Hong Kong", "Tokyo"];
 var gifArray = []; // will hold all the JSON data returned from the AJAX get
@@ -46,7 +29,7 @@ function renderButtons() { // this function turns text from the input field into
 function getGIFs() { // get GIF data from the Giphy API; push selected items into new array that will be used to dynamically create GIFs on DOM
     $(".button-text").on("click", function () { // listens for clicks on the search text buttons 
         $("#gif-space").empty(); // clears any GIFs out of the gif space
-        var gifSearch = $(this).attr("data-name"); // grabs the text from the button
+        gifSearch = $(this).attr("data-name"); // grabs the text from the button
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=wxu2jPOXlj0bnJJQl4bDrvxy4Og5iADT&q=" + gifSearch + "&limit=10&offset=0&rating=G&lang=en";
         $.ajax({ // runs the AJAX get
             url: queryURL,
@@ -68,9 +51,9 @@ function getGIFs() { // get GIF data from the Giphy API; push selected items int
     })
 }
 function gifsDOM() { // pushes the GIFs to the DOM. Assigns numerous attributes to the image tag so that animation can be turned on and off. Creates each individual div virtually then posts entire div to DOM
-    $("#gifs-title").text("Here are your GIFs. Enjoy!");
+    $("#gifs-title").text("These " + gifSearch + " GIFs are the next best thing to being there. Enjoy!");
     for (var x = 0; x < gifArray.length; x++) {
-        var gifsDiv = $("<div class='buttonGIF'>");
+        var gifsDiv = $("<span class='buttonGIF'>");
         var image = $("<img>").attr({
             "src": gifArray[x].fixed_url,
             "data-still": gifArray[x].fixed_url,
@@ -78,10 +61,10 @@ function gifsDOM() { // pushes the GIFs to the DOM. Assigns numerous attributes 
             "data-state": "still",
             "class": "gif"
         })
-        gifsDiv.append(image);
-        var pZero = $("<p>").text("Rating: " + gifArray[x].rating);
-        gifsDiv.append(pZero);
-        $("#gif-space").prepend(gifsDiv);
+            gifsDiv.append(image);
+            var pZero = $("<span>").text("Rating: " + gifArray[x].rating);
+            gifsDiv.append(pZero);
+            $("#gif-space").prepend(gifsDiv);
     }
     animateGIFs();
 }

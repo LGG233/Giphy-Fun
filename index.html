@@ -14,27 +14,31 @@
     <div class="jumbotron banner text-center">
         <h1 class="display-4">Around the World in <s>80</s> 10 GIFs!</h1>
     </div>
-    <form>
-        <span id="search-input"><strong>Where do you want to go?</strong><input id="searchText" type="text"></span>
-        <button class="btn-primary" id="add-user" type="submit">Click me!</button>
-    </form>
     <div class="row">
-        <div class="col-lg'8 col-md-6 col-sm-4">
-            <div id="instructions">Click these buttons to start your journey... Then click the pictures to animate</div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg'8 col-md-6 col-sm-4">
-            <div id="button-space">Buttons go here</div>
+        <div class="col-lg-8 col-md-6 col-sm-4">
+            <div class="bodyText" id="instructions">Click these buttons to start your journey... Then click the GIFs to animate them
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-8 col-md-6 col-sm-4">
+            <div class="bodyText" id="button-space">Buttons go here</div>
+        </div>
+    </div>
+    <form>
+    <div class="col-lg-8 col-md-6 col-sm-4">
+        <span id="search-input"><strong>Where else do you want to go?</strong><input id="searchText" type="text"></span>
+        <button class="btn-primary" id="add-user" type="submit">Click me!</button>
+    </div>
+    </form>
+    <div class="row">
+        <div class="col-lg-12 col-md-8 col-sm-4 bodyText">
             <h4 id=gifs-title></h4>
             <div id="gif-space"></div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="assets/javascript/app.js"></script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
