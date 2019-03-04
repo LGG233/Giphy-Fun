@@ -24,7 +24,7 @@
 // });
 
 var searchText = "";
-var topics = ["Bee", "Hornet", "Wasp", "Praying Mantis", "Cricket"];
+var topics = ["Sigh", "Boring", "Yawn", "Sleepy", "Tired"];
 var gifArray = [];
 var url = "";
 var rating = "";
@@ -52,7 +52,6 @@ function renderButtons() {
         $("#button-space").append(a);
     }
 }
-
 function getGIFs() {
     $(".button-text").on("click", function () {
         $("#gif-space").empty();
@@ -75,21 +74,36 @@ function getGIFs() {
                         rating: gifRating
                     });
                 }
-                console.log(gifArray);
-                console.log("array length = " + gifArray.length);
                 gifsDOM();
             })
     })
-    console.log("this is the gifArray")
 }
 function gifsDOM() {
     for (var x = 0; x < gifArray.length; x++) {
         var gifsDiv = $("<div class='buttonGIF'>");
-        var image = $("<img>").attr("src", gifArray[x].fixed_url);
+        var image = $("<img>").attr({
+            "src": gifArray[x].fixed_url,
+            "data-still": gifArray[x].fixed_url,
+            "data-animate": gifArray[x].gif_url,
+            "data-state": "still",
+            "class": "gif"
+        })
         gifsDiv.append(image);
         var pZero = $("<p>").text("Rating: " + gifArray[x].rating);
         gifsDiv.append(pZero);
         $("#gif-space").prepend(gifsDiv);
     }
+    animateGIFs();
 }
-
+function animateGIFs() {
+    $(".gif").on("click", function () {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    })
+}
