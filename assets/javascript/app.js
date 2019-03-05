@@ -7,9 +7,10 @@ renderButtons();
 getGIFs();
 
 $(document).ready(function () { // sets everything in motion
-    $("#add-user").on("click", function (event) {
+    $("#add-button").on("click", function (event) {
         event.preventDefault();
         searchText = $("#searchText").val().trim(); // grabs text from input field
+        $("#searchText").text("");
         topics.push(searchText); // pushes new search terms into the array used for creating buttons
         renderButtons();
         getGIFs();
@@ -46,9 +47,9 @@ function getGIFs() { // get GIF data from the Giphy API; push selected items int
                         "data-animate": response.data[j].images.fixed_width.url,
                         "data-state": "still",
                         "class": "gif"
-                    })
+                    });
                     gifsDiv.append(image);
-                    var pZero = $("<span>").text("Rating: " + response.data[j].rating);
+                    var pZero = $("<span class='rating'>").html("<br>Rating: " + response.data[j].rating + "<br>");
                     gifsDiv.append(pZero);
                     $("#gif-space").prepend(gifsDiv);
                 };
