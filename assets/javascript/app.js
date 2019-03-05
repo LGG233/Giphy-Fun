@@ -1,5 +1,5 @@
 var searchText = ""; // text from input box that will eventually become search term on Giphy
-var topics = ["Paris", "London", "Rome", "New York", "Hong Kong", "Tokyo", "Mexico City", "Delhi"];
+var topics = ["Paris", "Shanghai", "London", "Sydney", "Venice", "New York", "Hong Kong", "Mexico City", "Tokyo", "New Delhi"];
 var gifArray = []; // will hold all the JSON data returned from the AJAX get
 var gifSearch = ""; // name of searchText used in query URL and to push to DOM
 
@@ -48,8 +48,8 @@ function getGIFs() { // get GIF data from the Giphy API; push selected items int
                         "data-state": "still",
                         "class": "gif"
                     });
-                    gifsDiv.append(image);
                     var pZero = $("<span class='rating'>").html("<br>Rating: " + response.data[j].rating + "<br>");
+                    gifsDiv.append(image);
                     gifsDiv.append(pZero);
                     $("#gif-space").prepend(gifsDiv);
                 };
