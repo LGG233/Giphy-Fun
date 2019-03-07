@@ -8,22 +8,14 @@ html {
     background-size: 20%;
 }
 
-/* #open-gif {
-    float: left;
-    width: 300px;
-    height: auto;
-} */
-
 .bodyText {
     margin: 0 0 0 15px;
-    float: left;
 }
 
 .input-box {
     width: 200px!important;
     height: 50px!important;;
 }
-
 
 .button-text {
     margin: 10px 5px 0 0;
@@ -34,12 +26,18 @@ html {
     margin-bottom: 15px;
 }
 
+.searchedGIF {
+    float: left;
+    margin: 5px;
+}
+
 #gifs-title {
     margin-top: 5px;
 }
 
 #gif-space {
-    float: left;
+    display: inline-block;
+    margin: auto;
 }
 
 #searchText {
