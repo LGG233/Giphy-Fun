@@ -27,7 +27,7 @@ html {
 }
 
 .searchedGIF {
-    float: left;
+    display: inline-block;
     margin: 5px;
 }
 
@@ -36,7 +36,6 @@ html {
 }
 
 #gif-space {
-    display: inline-block;
     margin: auto;
 }
 
