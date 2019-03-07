@@ -8,18 +8,15 @@ html {
     background-size: 20%;
 }
 
-#open-gif {
+/* #open-gif {
     float: left;
     width: 300px;
     height: auto;
-}
-
-#searchText {
-    margin: 0 0 15px 15px;
-}
+} */
 
 .bodyText {
     margin: 0 0 0 15px;
+    float: left;
 }
 
 .input-box {
@@ -27,15 +24,30 @@ html {
     height: 50px!important;;
 }
 
-.button-text {
-    margin: 10px 3px 10px 0;
-}
 
-.button-gif {
-    margin: 10px;
+.button-text {
+    margin: 10px 5px 0 0;
 }
 
 .rating {
-    padding: 50px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
+#gifs-title {
+    margin-top: 5px;
+}
+
+#gif-space {
+    float: left;
+}
+
+#searchText {
+    margin: 0 0 15px 15px;
+}
+
+#new-search {
+    border-style: none none double none;
+    border-width: 0 0 1px 0;
+    margin-top: 15px;
+}

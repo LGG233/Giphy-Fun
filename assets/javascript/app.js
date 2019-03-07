@@ -1,6 +1,5 @@
 var searchText = ""; // text from input box that will eventually become search term on Giphy
 var topics = ["Paris", "Shanghai", "London", "Sydney", "Venice", "New York", "Hong Kong", "Mexico City", "Tokyo", "New Delhi"];
-var gifArray = []; // will hold all the JSON data returned from the AJAX get
 var gifSearch = ""; // name of searchText used in query URL and to push to DOM
 
 renderButtons();
@@ -21,8 +20,7 @@ function renderButtons() { // this function turns text from the input field into
     $("#button-space").empty(); // empties out the div so buttons are not duplicated
     for (var i = 0; i < topics.length; i++) { // loops through the topics array to create buttons based on search terms; always rewrites all buttons
         var a = $("<button>");
-        a.addClass("button-text");
-        a.addClass("btn-primary");
+        a.addClass("button-text btn-info");
         a.attr("data-name", topics[i]);
         a.text(topics[i]);
         $("#button-space").append(a);
@@ -40,7 +38,7 @@ function getGIFs() { // get GIF data from the Giphy API; push selected items int
                 $(".buttonGIF").empty(); // clears any GIFs out of the gif space
                 $("#gifs-title").text("These " + gifSearch + " GIFs are the next best thing to being there. Enjoy!");
                 for (var j = 0; j < 10; j++) {
-                    var gifsDiv = $("<span class='buttonGIF'>");
+                    var gifsDiv = $("<div class='buttonGIF'>");
                     var image = $("<img>").attr({
                         "src": response.data[j].images.fixed_width_still.url,
                         "data-still": response.data[j].images.fixed_width_still.url,
@@ -48,10 +46,9 @@ function getGIFs() { // get GIF data from the Giphy API; push selected items int
                         "data-state": "still",
                         "class": "gif"
                     });
-                    var pZero = $("<span class='rating'>").html("<br>Rating: " + response.data[j].rating + "<br>");
-                    gifsDiv.append(image);
-                    gifsDiv.append(pZero);
-                    $("#gif-space").prepend(gifsDiv);
+                    var pZero = $("<div class='rating'>").html("Rating: " + response.data[j].rating.toUpperCase() + "<br>");
+                    gifsDiv.append(image, pZero);
+                    $("#gif-space").append(gifsDiv);
                 };
                 animateGIFs();
             });
